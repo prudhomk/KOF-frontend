@@ -21,23 +21,19 @@ export const createFighter = async (fighter) => {
   return newFighter;
 };
 
-export const updateFighter = async (id) => {
+export const updateFighter = async (fighter, id) => {
   const res = await fetch(`https://guarded-falls-13158.herokuapp.com/api/v1/fighters/${id}`, {
     method: 'PUT',
     headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(id)
+    body: JSON.stringify(fighter)
   });
   const updatedFighter = res.json();
   return updatedFighter;
 };
 
 export const deleteFighter = async (id) => {
-  const res = await fetch(`https://guarded-falls-13158.herokuapp.com/api/v1/fighters/${id}`, {
-    method: 'DELETE',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(id)
+  fetch(`https://guarded-falls-13158.herokuapp.com/api/v1/fighters/${id}`, {
+    method: 'DELETE'
   });
-  const deadFighter = res.json();
-  return deadFighter;
 };
 

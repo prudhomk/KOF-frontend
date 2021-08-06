@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// import './Fighter.css';
 
 const Fighter = ({ name, birthplace, style, image }) => (
-  <figure>
+  <figure className="Fighter">
+    <h2>Name: {name}</h2>
     <img src={image} alt={name} />
     <figcaption>
-      <p>{name}</p>
-      <p>{birthplace}</p>
-      <p>{style}</p>
+      <p>Birthplace: {birthplace}</p>
+      <p>Fighting Style: {style}</p>
     </figcaption>
+   
   </figure>
 );
 

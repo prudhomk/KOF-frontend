@@ -3,7 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import { createFighter } from '../../services/fetchApi';
 
-const FighterForm = () => {
+const NewFighterForm = () => {
   
   const [name, setName] = useState('');
   const [japanese, setJapanese] = useState('');
@@ -97,4 +97,4 @@ const FighterForm = () => {
   );
 };
 
-export default FighterForm;
+export default NewFighterForm;
