@@ -1,11 +1,27 @@
+/* eslint-disable max-len */
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useFighter } from '../../state/customHooks';
+import { deleteFighter } from '../../state/customHooks';
+import { Link } from 'react-router-dom';
 
 const FighterDetails = () => {
   const { id } = useParams();
   const fighter = useFighter(id);
   if(!fighter) return <h1>Loading...</h1>;
+
+  const handleDelete = async () => {
+    const fighter = useFighter(id);
+    const confirmation = `Do you want to delete ${fighter.name} from the KOF Database?`;
+
+    if(!window.confirm(confirmation)) { return; }
+    try {
+      await deleteFighter(fighter.id);
+      history.pushState('/fighters');
+    } catch(err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <section>
@@ -40,6 +56,14 @@ const FighterDetails = () => {
         <dt>Quote</dt>
         <dd>{fighter.quote}</dd>
       </dl>
+
+      <Link to={`/fighters/${fighter.id}/edit`}>
+        Edit Fighter Info
+      </Link>
+
+      <button onClick={handleDelete}>
+        Remove Fighter
+      </button>
     </section>
   );
 };
