@@ -12,15 +12,7 @@ const FighterDetails = () => {
 
   const handleDelete = async () => {
     const fighter = useFighter(id);
-    const confirmation = `Do you want to delete ${fighter.name} from the KOF Database?`;
-
-    if(!window.confirm(confirmation)) { return; }
-    try {
-      await deleteFighter(fighter.id);
-      history.pushState('/fighters');
-    } catch(err) {
-      console.log(err.message);
-    }
+    await deleteFighter(fighter.id);
   };
 
   return (

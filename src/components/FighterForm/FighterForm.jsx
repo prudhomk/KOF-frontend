@@ -1,7 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
+import { useState } from 'react';
 import { createFighter } from '../../services/fetchApi';
 
 const FighterForm = () => {
@@ -18,9 +17,8 @@ const FighterForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    useEffect(() => {
-      createFighter({ name, japanese, origin, birthplace, style, image, powers, job, quote });
-    });
+    const createdFighter = await createFighter({ name, japanese, origin, birthplace, style, image, powers, job, quote });
+    console.log(createdFighter);
   };
   
 
