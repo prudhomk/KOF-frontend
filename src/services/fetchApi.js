@@ -32,8 +32,11 @@ export const updateFighter = async (fighter, id) => {
 };
 
 export const deleteFighter = async (id) => {
-  fetch(`https://guarded-falls-13158.herokuapp.com/api/v1/fighters/${id}`, {
+  const res = await fetch(`https://guarded-falls-13158.herokuapp.com/api/v1/fighters/${id}`, {
     method: 'DELETE'
   });
+  console.log(res);
+  if(res.status === 200) alert('Fighter Eliminated');
+  
 };
 

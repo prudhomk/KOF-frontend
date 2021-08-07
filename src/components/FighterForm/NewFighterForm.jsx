@@ -23,7 +23,7 @@ const NewFighterForm = () => {
   
 
   return (
-    <form className="StrongForm" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <p>
         <label>
           <span>Name</span>

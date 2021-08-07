@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import FighterForm from './NewFighterForm';
+import EditFighterForm from './EditFighterForm';
 import { fetchFighter } from '../../services/fetchApi';
 
 const EditFormPage = () => {
@@ -8,13 +8,14 @@ const EditFormPage = () => {
   const handleUpdate = async (fighter) => {
     const history = useHistory();
     const editedFighter = await fetchFighter(fighter);
-    history.push(`/fighters/${editedFighter.id}`);
+    history.push(`/${editedFighter.id}`);
   };
-
+  console.log('hello');
   return (
     <div>
+      
       <h2>Edit Fighter Info</h2>
-      <FighterForm onSubmit={handleUpdate} />
+      <EditFighterForm onSubmit={handleUpdate} />
     </div>
   );
 };

@@ -8,12 +8,16 @@ import { Link } from 'react-router-dom';
 const FighterDetails = () => {
   const { id } = useParams();
   const fighter = useFighter(id);
-  if(!fighter) return <h1>Loading...</h1>;
+  
 
-  const handleDelete = async () => {
-    const fighter = useFighter(id);
-    await deleteFighter(fighter.id);
-  };
+  // const handleDelete = async () => {
+  //   // console.log(fighter);
+  //   const fighter = useFighter(id);
+  //   console.log(fighter);
+  //   await deleteFighter(fighter.id);
+  // };
+
+  if(!fighter) return <h1>Loading...</h1>;
 
   return (
     <section>
@@ -49,11 +53,11 @@ const FighterDetails = () => {
         <dd>{fighter.quote}</dd>
       </dl>
 
-      <Link to={`/fighters/${fighter.id}/edit`}>
+      <Link to={`/${fighter.id}/edit`}>
         Edit Fighter Info
       </Link>
 
-      <button onClick={handleDelete}>
+      <button id={id} onClick={((e) => deleteFighter(e.target.id))}>
         Remove Fighter
       </button>
     </section>

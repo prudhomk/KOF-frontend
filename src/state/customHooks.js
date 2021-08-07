@@ -19,7 +19,7 @@ export const useFighter = (id) => {
 
   useEffect(() => {
     fetchFighter(id).then(setFighter);
-  }, []);
+  }, [id]);
 
   return fighter;
 };

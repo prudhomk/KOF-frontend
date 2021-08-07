@@ -10,8 +10,9 @@ export default function App() {
     <Switch>
       <Route exact path="/" component={FighterList} />
       <Route exact path="/add" component={FormPage} />
-      <Route exact path="/edit" component={EditFormPage} />
+      <Route exact path="/:id/edit" component={EditFormPage} />
       <Route exact path="/:id" component={FighterDetails} />
+      
       
     </Switch>
   );

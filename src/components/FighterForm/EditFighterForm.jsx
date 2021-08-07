@@ -1,19 +1,25 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useFighter } from '../../state/customHooks';
 import { updateFighter } from '../../services/fetchApi';
 
 const EditFighterForm = () => {
   
-  const [name, setName] = useState('');
-  const [japanese, setJapanese] = useState('');
-  const [origin, setOrigin] = useState('');
-  const [birthplace, setBirthplace] = useState('');
-  const [style, setStyle] = useState('');
-  const [image, setImage] = useState('');
-  const [powers, setPowers] = useState('');
-  const [job, setJob] = useState('');
-  const [quote, setQuote] = useState('');
+  const { id } = useParams();
+  const fighter = useFighter(id);
+  console.log('hi', fighter);
+
+  const [name, setName] = useState(fighter);
+  const [japanese, setJapanese] = useState(fighter);
+  const [origin, setOrigin] = useState(fighter);
+  const [birthplace, setBirthplace] = useState(fighter);
+  const [style, setStyle] = useState(fighter);
+  const [image, setImage] = useState(fighter);
+  const [powers, setPowers] = useState(fighter);
+  const [job, setJob] = useState(fighter);
+  const [quote, setQuote] = useState(fighter);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +29,7 @@ const EditFighterForm = () => {
   
 
   return (
-    <form className="StrongForm" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <p>
         <label>
           <span>Name</span>
