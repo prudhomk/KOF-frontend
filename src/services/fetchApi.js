@@ -7,8 +7,10 @@ export const fetchFighters = async () => {
 };
 
 export const fetchFighter = async (id) => {
+  console.log(id);
   const res = await fetch(`https://guarded-falls-13158.herokuapp.com/api/v1/fighters/${id}`);
-  return res.json();
+  const fighter = await res.json();
+  return fighter;
 };
 
 export const createFighter = async (fighter) => {
@@ -18,17 +20,20 @@ export const createFighter = async (fighter) => {
     body: JSON.stringify(fighter)
   });
   const newFighter = res.json();
-  return newFighter;
+  return await newFighter;
 };
 
 export const updateFighter = async (fighter, id) => {
+  console.log(fighter);
   const res = await fetch(`https://guarded-falls-13158.herokuapp.com/api/v1/fighters/${id}`, {
     method: 'PUT',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify(fighter)
   });
+  console.log(res);
   const updatedFighter = res.json();
-  return updatedFighter;
+  console.log(updatedFighter);
+  return await updatedFighter;
 };
 
 export const deleteFighter = async (id) => {
