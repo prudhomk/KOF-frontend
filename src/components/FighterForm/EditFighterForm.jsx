@@ -3,10 +3,11 @@ import React from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFighter } from '../../state/customHooks';
+// import { useForm } from 'react-hook-form';
 import { updateFighter } from '../../services/fetchApi';
 
 const EditFighterForm = () => {
-  
+  // const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const { id } = useParams();
   const fighter = useFighter(id);
   console.log('hi', fighter);

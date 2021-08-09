@@ -24,3 +24,5 @@ export const useFighter = (id) => {
   return fighter;
 };
 
+
+

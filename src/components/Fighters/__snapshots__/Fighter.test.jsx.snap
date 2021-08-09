@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Villager component renders Villager 1`] = `
+<DocumentFragment>
+  <figure
+    class="Fighter"
+  >
+    <h2>
+      Name: Bali
+    </h2>
+    <img
+      alt="Bali"
+      src="https://image.com/image.jpeg"
+    />
+    <figcaption>
+      <p>
+        Birthplace: Egypt
+      </p>
+      <p>
+        Fighting Style: kendo
+      </p>
+    </figcaption>
+  </figure>
+</DocumentFragment>
+`;
